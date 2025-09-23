@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seyed Mahan Saljoughian Rad - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        body.rtl {
+            direction: rtl;
+            font-family: 'Vazirmatn', sans-serif;
+            text-align: right;
+        }
+        body.rtl .section ul li {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+        body.rtl .section ul li:before {
+            left: auto;
+            right: 0;
+        }
+        body.rtl .sidebar {
+            text-align: center; /* Keep center for sidebar */
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 30%;
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 20px;
+            padding-top: 40px; /* Added top space for cleanliness without image */
+            text-align: center;
+        }
+        .sidebar h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #bdc3c7;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .sidebar a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        .language-switch {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .language-switch button {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        .language-switch button.active {
+            background: #3498db;
+            border-radius: 4px;
+        }
+        .main-content {
+            width: 70%;
+            padding: 40px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h3 {
+            font-size: 20px;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .section ul li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        .skill-item {
+            background: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h1 id="name">Seyed Mahan Saljoughian Rad</h1>
+            <h2 id="title">Flutter Developer</h2>
+            <p id="location">Shiraz, Iran</p>
+            <ul>
+                <li id="email">Email: <a href="mailto:mahansaljoughian@gmail.com">mahansaljoughian@gmail.com</a></li>
+                <li id="phone">Phone: 09372578150</li>
+                <li id="linkedin">LinkedIn: <a href="https://www.linkedin.com/in/mahan-saljoughian-b2994a248/" target="_blank">Profile</a></li>
+                <li id="github">GitHub: <a href="https://github.com/Mahan-Saljoughian" target="_blank">github.com/Mahan-Saljoughian</a></li>
+                <li id="portfolio">Portfolio: <a href="https://github.com/Mahan-Saljoughian/motogen-public" target="_blank">Motogen Project</a></li>
+                <li id="dob">Date of Birth: 2003-09-05</li>
+                <li id="gender">Gender: Male</li>
+                <li id="military">Military Service: Educational Exemption</li>
+            </ul>
+            <div class="language-switch">
+                <button id="en-btn" class="active">English</button> |
+                <button id="fa-btn">فارسی</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- About Me -->
+            <div class="section">
+                <h3 id="about-title">About Me</h3>
+                <p id="about-text">Flutter developer focused on principled design, efficient implementation, and security considerations in Android applications. Committed to SOLID principles and clean architecture for scalable and maintainable software. Also familiar with Django and interested in backend, AI, and networking to combine technical knowledge and creativity in problem-solving.</p>
+            </div>
+
+            <!-- Education -->
+            <div class="section">
+                <h3 id="education-title">Education</h3>
+                <ul id="education-list">
+                    <li><strong>Bachelor: Software Engineering</strong> - Persian Gulf University (PGU), 2021-2025 (GPA: 18.2)</li>
+                </ul>
+            </div>
+
+            <!-- Languages -->
+            <div class="section">
+                <h3 id="languages-title">Languages</h3>
+                <ul id="languages-list">
+                    <li>English: Advanced</li>
+                </ul>
+            </div>
+
+            <!-- Software Skills -->
+            <div class="section">
+                <h3 id="software-skills-title">Software Skills</h3>
+                <div class="skills-grid" id="software-skills-grid">
+                    <div class="skill-item">SQL Server (Intermediate)</div>
+                    <div class="skill-item">Java (Intermediate)</div>
+                    <div class="skill-item">Rest API (Intermediate)</div>
+                    <div class="skill-item">Linux (Intermediate)</div>
+                    <div class="skill-item">Network+ (Intermediate)</div>
+                    <div class="skill-item">Flutter (Intermediate)</div>
+                    <div class="skill-item">Python (Beginner)</div>
+                    <div class="skill-item">Django (Beginner)</div>
+                </div>
+            </div>
+
+            <!-- Additional Skills -->
+            <div class="section">
+                <h3 id="additional-skills-title">Additional Skills</h3>
+                <div class="skills-grid" id="additional-skills-grid">
+                    <div class="skill-item">SOLID Programming Principles</div>
+                    <div class="skill-item">Clean Architecture</div>
+                    <div class="skill-item">Firebase</div>
+                    <div class="skill-item">Sentry</div>
+                    <div class="skill-item">RiverPod</div>
+                    <div class="skill-item">Bloc</div>
+                    <div class="skill-item">Efficient Code Design</div>
+                    <div class="skill-item">Communication</div>
+                    <div class="skill-item">Git & GitHub</div>
+                </div>
+            </div>
+
+            <!-- Projects and Academic Experiences -->
+            <div class="section">
+                <h3 id="projects-title">Projects and Academic Experiences</h3>
+                <ul id="projects-list">
+                    <li>Helmet Detection Project for Data Mining Course - Fine-tuned with YOLO and KerasCV (2024)</li>
+                    <li>Course Registration System Simulation - With Java and JavaFX (2021)</li>
+                    <li>Text Compression - Compression Algorithms with Java (2023)</li>
+                    <li>Implementation of Maze Routing Algorithms - BFS, DFS, UCS, and A* with Java (2023)</li>
+                    <li>Car Service Management Software and Reminder with Chatbot - Using Flutter for Android (2025)</li>
+                </ul>
+            </div>
+
+            <!-- Books and Articles -->
+            <div class="section">
+                <h3 id="books-title">Books and Articles</h3>
+                <ul id="books-list">
+                    <li>AI Ethics in Image Processing (In Edit) - Mahan Saljoughian, Prof. Rezvan Baghmolai (2025)</li>
+                </ul>
+            </div>
+
+            <!-- Volunteer Activities -->
+            <div class="section">
+                <h3 id="volunteer-title">Volunteer Activities</h3>
+                <ul id="volunteer-list">
+                    <li>Member of Persian Gulf University Scientific Association (2024)</li>
+                    <li>Teaching Assistant: Fundamentals of Programming with C (2025)</li>
+                    <li>Teaching Assistant: Advanced Programming with Java (2024)</li>
+                    <li>Teaching Assistant: Fundamentals of Artificial Intelligence (2024)</li>
+                    <li>Teaching Assistant: Algorithm Design (2024)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const content = {
+            en: {
+                name: 'Seyed Mahan Saljoughian Rad',
+                title: 'Flutter Developer',
+                location: 'Shiraz, Iran',
+                email: 'Email: <a href="mailto:mahansaljoughian@gmail.com">mahansaljoughian@gmail.com</a>',
+                phone: 'Phone: 09372578150',
+                linkedin: 'LinkedIn: <a href="https://www.linkedin.com/in/mahan-saljoughian-b2994a248/" target="_blank">Profile</a>',
+                github: 'GitHub: <a href="https://github.com/Mahan-Saljoughian" target="_blank">github.com/Mahan-Saljoughian</a>',
+                portfolio: 'Portfolio: <a href="https://github.com/Mahan-Saljoughian/motogen-public" target="_blank">Motogen Project</a>',
+                dob: 'Date of Birth: 2003-09-05',
+                gender: 'Gender: Male',
+                military: 'Military Service: Educational Exemption',
+                aboutTitle: 'About Me',
+                aboutText: 'Flutter developer focused on principled design, efficient implementation, and security considerations in Android applications. Committed to SOLID principles and clean architecture for scalable and maintainable software. Also familiar with Django and interested in backend, AI, and networking to combine technical knowledge and creativity in problem-solving.',
+                educationTitle: 'Education',
+                educationList: ['<strong>Bachelor: Software Engineering</strong> - Persian Gulf University (PGU), 2021-2025 (GPA: 18.2)'],
+                languagesTitle: 'Languages',
+                languagesList: ['English: Advanced'],
+                softwareSkillsTitle: 'Software Skills',
+                softwareSkills: ['SQL Server (Intermediate)', 'Java (Intermediate)', 'Rest API (Intermediate)', 'Linux (Intermediate)', 'Network+ (Intermediate)', 'Flutter (Intermediate)', 'Python (Beginner)', 'Django (Beginner)'],
+                additionalSkillsTitle: 'Additional Skills',
+                additionalSkills: ['SOLID Programming Principles', 'Clean Architecture', 'Firebase', 'Sentry', 'RiverPod', 'Bloc', 'Efficient Code Design', 'Communication', 'Git & GitHub'],
+                projectsTitle: 'Projects and Academic Experiences',
+                projectsList: [
+                    'Helmet Detection Project for Data Mining Course - Fine-tuned with YOLO and KerasCV (2024)',
+                    'Course Registration System Simulation - With Java and JavaFX (2021)',
+                    'Text Compression - Compression Algorithms with Java (2023)',
+                    'Implementation of Maze Routing Algorithms - BFS, DFS, UCS, and A* with Java (2023)',
+                    'Car Service Management Software and Reminder with Chatbot - Using Flutter for Android (2025)'
+                ],
+                booksTitle: 'Books and Articles',
+                booksList: ['AI Ethics in Image Processing (In Edit) - Mahan Saljoughian, Prof. Rezvan Baghmolai (2025)'],
+                volunteerTitle: 'Volunteer Activities',
+                volunteerList: [
+                    'Member of Persian Gulf University Scientific Association (2024)',
+                    'Teaching Assistant: Fundamentals of Programming with C (2025)',
+                    'Teaching Assistant: Advanced Programming with Java (2024)',
+                    'Teaching Assistant: Fundamentals of Artificial Intelligence (2024)',
+                    'Teaching Assistant: Algorithm Design (2024)'
+                ]
+            },
+            fa: {
+                name: 'سید ماهان سلجوقیان راد',
+                title: 'توسعه‌دهنده فلاتر',
+                location: 'شیراز، ایران',
+                email: 'ایمیل: <a href="mailto:mahansaljoughian@gmail.com">mahansaljoughian@gmail.com</a>',
+                phone: 'تلفن: 09372578150',
+                linkedin: 'لینکدین: <a href="https://www.linkedin.com/in/mahan-saljoughian-b2994a248/" target="_blank">پروفایل</a>',
+                github: 'گیتهاب: <a href="https://github.com/Mahan-Saljoughian" target="_blank">github.com/Mahan-Saljoughian</a>',
+                portfolio: 'نمونه کار: <a href="https://github.com/Mahan-Saljoughian/motogen-public" target="_blank">پروژه Motogen</a>',
+                dob: 'تاریخ تولد: 1382/06/14',
+                gender: 'جنسیت: مرد',
+                military: 'وضعیت نظام وظیفه: معافیت تحصیلی',
+                aboutTitle: 'درباره من',
+                aboutText: 'توسعه‌دهنده فلاتر با تمرکز بر طراحی اصولی، پیاده‌سازی بهینه و رعایت ملاحظات امنیتی در اپلیکیشن‌های اندروید. پایبند به اصول SOLID و معماری پاک برای ایجاد نرم‌افزارهای مقیاس‌پذیر و قابل نگهداری. همچنین آشنا با جنگو و علاقه‌مند به حوزه‌های بک‌اند، هوش مصنوعی و شبکه برای ترکیب دانش فنی و خلاقیت در حل مسائل.',
+                educationTitle: 'سوابق تحصیلی',
+                educationList: ['<strong>کارشناسی: مهندسی کامپیوتر-نرم افزار</strong> - دانشگاه خلیج فارس، 1400-1404 (معدل: 18.2)'],
+                languagesTitle: 'زبان‌ها',
+                languagesList: ['انگلیسی: پیشرفته'],
+                softwareSkillsTitle: 'مهارت‌های نرم افزاری',
+                softwareSkills: ['SQL Server (متوسط)', 'Java (متوسط)', 'Rest API (متوسط)', 'Linux (متوسط)', 'Network+ (متوسط)', 'Flutter (متوسط)', 'Python (مقدماتی)', 'Django (مقدماتی)'],
+                additionalSkillsTitle: 'مهارت‌های تکمیلی',
+                additionalSkills: ['اصول برنامه‌نویسی SOLID', 'Clean Architecture', 'Firebase', 'Sentry', 'RiverPod', 'Bloc', 'Efficient Code Design', 'Communication', 'Git & GitHub'],
+                projectsTitle: 'پروژه‌ها و تجربیات آکادمیک',
+                projectsList: [
+                    'پروژه تشخیص پوشیدن کلاه ایمنی برای درس داده کاوی - فاین‌تیون با YOLO و KerasCV (1403)',
+                    'شبیه‌سازی سیستم ثبت‌نام در درس‌ها – با Java و JavaFX (1400)',
+                    'فشرده‌سازی متن – الگوریتم‌های فشرده‌سازی با Java (1402)',
+                    'پیاده‌سازی الگوریتم‌های مسیریابی در ماز – BFS, DFS, UCS و A_Star با جاوا (1402)',
+                    'نرم افزار مدیریت سرویس‌های ماشین و یادآوری آنها به همراه چت بات با فلاتر برای اندروید (1404)'
+                ],
+                booksTitle: 'کتاب‌ها و مقالات',
+                booksList: ['Ai ethics in Image Processing (in edit) - ماهان سلجوقیان ، استاد رضوان باغملایی (1404)'],
+                volunteerTitle: 'فعالیت‌های داوطلبانه',
+                volunteerList: [
+                    'عضو انجمن علمی دانشگاه خلیج فارس بوشهر (1403)',
+                    'دستیار استاد درس مبانی برنامه نویسی با C (1404)',
+                    'دستیار استاد درس برنامه نویسی پیشرفته با java (1403)',
+                    'دستیار استاد مبانی هوش مصنوعی (1403)',
+                    'دستیار استاد درس طراحی الگوریتم (1403)'
+                ]
+            }
+        };
+
+        function switchLanguage(lang) {
+            const data = content[lang];
+            document.getElementById('name').innerHTML = data.name;
+            document.getElementById('title').innerHTML = data.title;
+            document.getElementById('location').innerHTML = data.location;
+            document.getElementById('email').innerHTML = data.email;
+            document.getElementById('phone').innerHTML = data.phone;
+            document.getElementById('linkedin').innerHTML = data.linkedin;
+            document.getElementById('github').innerHTML = data.github;
+            document.getElementById('portfolio').innerHTML = data.portfolio;
+            document.getElementById('dob').innerHTML = data.dob;
+            document.getElementById('gender').innerHTML = data.gender;
+            document.getElementById('military').innerHTML = data.military;
+            document.getElementById('about-title').innerHTML = data.aboutTitle;
+            document.getElementById('about-text').innerHTML = data.aboutText;
+            document.getElementById('education-title').innerHTML = data.educationTitle;
+            document.getElementById('education-list').innerHTML = data.educationList.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('languages-title').innerHTML = data.languagesTitle;
+            document.getElementById('languages-list').innerHTML = data.languagesList.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('software-skills-title').innerHTML = data.softwareSkillsTitle;
+            document.getElementById('software-skills-grid').innerHTML = data.softwareSkills.map(item => `<div class="skill-item">${item}</div>`).join('');
+            document.getElementById('additional-skills-title').innerHTML = data.additionalSkillsTitle;
+            document.getElementById('additional-skills-grid').innerHTML = data.additionalSkills.map(item => `<div class="skill-item">${item}</div>`).join('');
+            document.getElementById('projects-title').innerHTML = data.projectsTitle;
+            document.getElementById('projects-list').innerHTML = data.projectsList.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('books-title').innerHTML = data.booksTitle;
+            document.getElementById('books-list').innerHTML = data.booksList.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('volunteer-title').innerHTML = data.volunteerTitle;
+            document.getElementById('volunteer-list').innerHTML = data.volunteerList.map(item => `<li>${item}</li>`).join('');
+
+            document.body.classList.toggle('rtl', lang === 'fa');
+            document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+            document.getElementById('fa-btn').classList.toggle('active', lang === 'fa');
+        }
+
+        document.getElementById('en-btn').addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('fa-btn').addEventListener('click', () => switchLanguage('fa'));
+
+        // Default to English
+        switchLanguage('en');
+    </script>
+</body>
+</html>

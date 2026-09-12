@@ -1,251 +1,532 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seyed Mahan Saljoughian Rad - Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #edf1f6;
+            --card: #ffffff;
+            --navy: #2c3e50;
+            --navy-dark: #22303f;
+            --accent: #3498db;
+            --accent-dark: #2477ab;
+            --text: #2f3640;
+            --muted: #6b7a8c;
+            --line: #e4e9ef;
+            --radius: 12px;
+            --shadow: 0 18px 40px rgba(31, 45, 61, 0.12);
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
-            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            transition: all 0.3s ease;
+            padding: 28px 16px;
+            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
         }
         body.rtl {
-            direction: rtl;
-            font-family: 'Vazirmatn', sans-serif;
-            text-align: right;
+            font-family: 'Vazirmatn', 'Roboto', sans-serif;
         }
-        body.rtl .section ul li {
-            padding-left: 0;
-            padding-right: 20px;
-        }
-        body.rtl .section ul li:before {
-            left: auto;
-            right: 0;
-        }
-        body.rtl .sidebar {
-            text-align: center; /* Keep center for sidebar */
+        a {
+            color: var(--accent-dark);
         }
         .container {
             display: flex;
-            max-width: 1200px;
-            margin: 20px auto;
-            background: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            max-width: 1080px;
+            margin: 0 auto;
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             overflow: hidden;
         }
         .sidebar {
-            width: 30%;
-            background: #2c3e50;
-            color: #fff;
-            padding: 40px 20px;
-            padding-top: 40px; /* Added top space for cleanliness without image */
+            width: 32%;
+            min-width: 290px;
+            padding: 38px 28px;
+            background: linear-gradient(165deg, #33475b 0%, #22303f 72%);
+            color: #eef3f8;
             text-align: center;
         }
-        .sidebar h1 {
-            margin: 0;
-            font-size: 24px;
+        .monogram {
+            width: 86px;
+            height: 86px;
+            margin: 0 auto 20px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            font-size: 25px;
             font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+            background: linear-gradient(135deg, #3498db, #6dd5ed);
+            box-shadow: 0 10px 24px rgba(52, 152, 219, 0.35);
+        }
+        .sidebar h1 {
+            margin: 0 0 8px;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.4;
         }
         .sidebar h2 {
-            font-size: 18px;
-            margin: 10px 0;
-            color: #bdc3c7;
+            margin: 0;
+            font-size: 15px;
+            font-weight: 500;
+            color: #9fb3c8;
         }
-        .sidebar ul {
+        .location {
+            margin: 6px 0 0;
+            font-size: 13.5px;
+            color: #9fb3c8;
+        }
+        .contact {
             list-style: none;
+            margin: 28px 0 0;
             padding: 0;
-            margin: 20px 0;
+            text-align: left;
         }
-        .sidebar ul li {
-            margin: 10px 0;
-            font-size: 14px;
+        body.rtl .contact {
+            text-align: right;
         }
-        .sidebar a {
-            color: #3498db;
+        .contact li {
+            padding: 10px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .contact li:last-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .contact-label {
+            display: block;
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: #8fa6bd;
+        }
+        body.rtl .contact-label {
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .contact-value {
+            display: block;
+            margin-top: 2px;
+            font-size: 13px;
+            color: #dbe6f0;
+            word-break: break-word;
+        }
+        .contact-value a {
+            color: #7fc4f0;
             text-decoration: none;
         }
-        .sidebar a:hover {
+        .contact-value a:hover {
             text-decoration: underline;
         }
         .language-switch {
-            margin-top: 20px;
-            font-size: 14px;
+            margin-top: 30px;
+            display: inline-flex;
+            gap: 4px;
+            padding: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
         }
         .language-switch button {
-            background: none;
-            border: none;
-            color: #fff;
+            border: 0;
+            background: transparent;
+            color: #cfdbe6;
+            padding: 7px 18px;
+            border-radius: 999px;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 700;
             cursor: pointer;
-            padding: 5px 10px;
-            font-weight: bold;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .language-switch button:hover {
+            color: #fff;
         }
         .language-switch button.active {
-            background: #3498db;
-            border-radius: 4px;
+            background: var(--accent);
+            color: #fff;
         }
         .main-content {
-            width: 70%;
-            padding: 40px;
+            width: 68%;
+            padding: 42px 46px;
         }
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 36px;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .section:last-child {
+            margin-bottom: 0;
         }
         .section h3 {
-            font-size: 20px;
-            border-bottom: 2px solid #2c3e50;
+            position: relative;
+            margin: 0 0 18px;
             padding-bottom: 10px;
-            margin-bottom: 20px;
-            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--navy);
+            border-bottom: 1px solid var(--line);
+        }
+        body.rtl .section h3 {
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 17px;
+        }
+        .section h3::after {
+            content: '';
+            position: absolute;
+            inset-inline-start: 0;
+            bottom: -1px;
+            width: 54px;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--accent);
+        }
+        .section p {
+            margin: 0;
         }
         .section ul {
             list-style: none;
+            margin: 0;
             padding: 0;
         }
         .section ul li {
-            margin-bottom: 10px;
             position: relative;
-            padding-left: 20px;
+            margin-bottom: 10px;
+            padding-inline-start: 20px;
         }
-        .section ul li:before {
-            content: '•';
+        .section ul li:last-child {
+            margin-bottom: 0;
+        }
+        .section ul li::before {
+            content: '';
             position: absolute;
-            left: 0;
-            color: #3498db;
+            inset-inline-start: 2px;
+            top: 0.62em;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
         }
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
             gap: 10px;
         }
         .skill-item {
-            background: #ecf0f1;
-            padding: 10px;
-            border-radius: 4px;
+            padding: 10px 12px;
+            background: #f7f9fc;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-size: 12.5px;
             text-align: center;
-            font-size: 14px;
+            color: #3d4a59;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
         }
-        @media (max-width: 768px) {
+        .skill-item:hover {
+            transform: translateY(-3px);
+            background: #fff;
+            border-color: #bcdcf3;
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.16);
+        }
+        .projects {
+            display: grid;
+            gap: 12px;
+        }
+        .project {
+            position: relative;
+            padding: 16px 18px;
+            padding-inline-start: 22px;
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+        .project::before {
+            content: '';
+            position: absolute;
+            inset-inline-start: 0;
+            top: 14px;
+            bottom: 14px;
+            width: 3px;
+            border-radius: 3px;
+            background: var(--accent);
+        }
+        .project:hover {
+            transform: translateY(-2px);
+            border-color: #cfe3f3;
+            box-shadow: 0 12px 24px rgba(31, 45, 61, 0.1);
+        }
+        .project-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 2px 14px;
+        }
+        .project-title {
+            margin: 0;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .project-meta {
+            font-size: 11.5px;
+            color: var(--muted);
+        }
+        .project-desc {
+            margin: 7px 0 0;
+            font-size: 13px;
+            color: #4a5768;
+        }
+        .project-link {
+            display: inline-block;
+            margin-top: 9px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--accent-dark);
+            text-decoration: none;
+            direction: ltr;
+            unicode-bidi: isolate;
+        }
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        .ltr {
+            direction: ltr;
+            unicode-bidi: isolate;
+            display: inline-block;
+        }
+        @media (max-width: 880px) {
+            body {
+                padding: 16px 10px;
+            }
             .container {
                 flex-direction: column;
             }
-            .sidebar, .main-content {
+            .sidebar {
                 width: 100%;
+                min-width: 0;
+                padding: 30px 24px;
+            }
+            .main-content {
+                width: 100%;
+                padding: 30px 24px;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            .section {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+            .skill-item,
+            .project {
+                transition: none;
+            }
+        }
+        @media print {
+            body {
+                padding: 0;
+                background: #fff;
+            }
+            .container {
+                max-width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .language-switch {
+                display: none;
+            }
+            .section {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .sidebar {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .project,
+            .skill-item {
+                break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
+        <aside class="sidebar">
+            <div class="monogram" id="monogram">MS</div>
             <h1 id="name">Seyed Mahan Saljoughian Rad</h1>
-            <h2 id="title">Flutter Developer</h2>
-            <p id="location">Shiraz, Iran</p>
-            <ul>
-                <li id="email">Email: <a href="mailto:mahansaljoughian@gmail.com">mahansaljoughian@gmail.com</a></li>
-                <li id="phone">Phone: 09372578150</li>
-                <li id="linkedin">LinkedIn: <a href="https://www.linkedin.com/in/mahan-saljoughian-b2994a248/" target="_blank">Profile</a></li>
-                <li id="github">GitHub: <a href="https://github.com/Mahan-Saljoughian" target="_blank">github.com/Mahan-Saljoughian</a></li>
-                <li id="portfolio">Portfolio: <a href="https://github.com/Mahan-Saljoughian/motolog-public" target="_blank">Motolog Project</a></li>
-                <li id="dob">Date of Birth: 2003-09-05</li>
-                <li id="gender">Gender: Male</li>
-                <li id="military">Military Service: Educational Exemption</li>
+            <h2 id="title">Fullstack Developer</h2>
+            <p class="location" id="location">Shiraz, Iran</p>
+            <ul class="contact" id="contact-list">
+                <li><span class="contact-label">Email</span><span class="contact-value"><a href="mailto:mahansaljoughian@gmail.com">mahansaljoughian@gmail.com</a></span></li>
+                <li><span class="contact-label">Phone</span><span class="contact-value"><a class="ltr" href="tel:+989372578150">09372578150</a></span></li>
+                <li><span class="contact-label">LinkedIn</span><span class="contact-value"><a href="https://www.linkedin.com/in/mahan-saljoughian-b2994a248/" target="_blank" rel="noopener">Profile</a></span></li>
+                <li><span class="contact-label">GitHub</span><span class="contact-value"><a class="ltr" href="https://github.com/Mahan-Saljoughian" target="_blank" rel="noopener">github.com/Mahan-Saljoughian</a></span></li>
+                <li><span class="contact-label">Date of Birth</span><span class="contact-value"><span class="ltr">2003-09-05</span></span></li>
+                <li><span class="contact-label">Gender</span><span class="contact-value">Male</span></li>
+                <li><span class="contact-label">Military Service</span><span class="contact-value">Educational Exemption</span></li>
             </ul>
             <div class="language-switch">
-                <button id="en-btn" class="active">English</button> |
-                <button id="fa-btn">فارسی</button>
+                <button id="en-btn" class="active" type="button">English</button>
+                <button id="fa-btn" type="button">فارسی</button>
             </div>
-        </div>
+        </aside>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- About Me -->
-            <div class="section">
+        <main class="main-content">
+            <section class="section">
                 <h3 id="about-title">About Me</h3>
-                <p id="about-text">Flutter developer focused on principled design, efficient implementation, and security considerations in Android applications. Committed to SOLID principles and clean architecture for scalable and maintainable software. Also familiar with Django and interested in backend, AI, and networking to combine technical knowledge and creativity in problem-solving.</p>
-            </div>
+                <p id="about-text">Mobile developer focused on principled design, efficient implementation, and security considerations in Android applications, building with both Flutter and Kotlin/Jetpack Compose. Committed to SOLID principles and clean architecture for scalable and maintainable software. Also experienced in Django full-stack development (DRF &amp; HTMX), with a strong interest in backend, AI, and networking. Efficient and smart use of AI coding agents (Claude, Codex, Gemini, and DeepSeek), with Claude being the best fit for the workflow so far.</p>
+            </section>
 
-            <!-- Education -->
-            <div class="section">
+            <section class="section">
                 <h3 id="education-title">Education</h3>
                 <ul id="education-list">
                     <li><strong>Bachelor: Software Engineering</strong> - Persian Gulf University (PGU), 2021-2025 (GPA: 18.24)</li>
-                    <li><strong>Masters: Software Engineering</strong> - Shiraz Univeristy of Technology (sutech), starting 2025</li>
+                    <li><strong>Masters: Software Engineering</strong> - Shiraz University of Technology (SUTech), 2025 - Present (GPA: 16.53)</li>
                 </ul>
-            </div>
+            </section>
 
-            <!-- Languages -->
-            <div class="section">
+            <section class="section">
                 <h3 id="languages-title">Languages</h3>
                 <ul id="languages-list">
                     <li>English: Advanced</li>
                 </ul>
-            </div>
+            </section>
 
-            <!-- Software Skills -->
-            <div class="section">
+            <section class="section">
                 <h3 id="software-skills-title">Software Skills</h3>
                 <div class="skills-grid" id="software-skills-grid">
-                    
-                       <div class="skill-item">Java (Intermediate)</div>
-                       <div class="skill-item">Dart (Intermediate)</div>
+                    <div class="skill-item">Flutter (Intermediate)</div>
+                    <div class="skill-item">Dart (Intermediate)</div>
+                    <div class="skill-item">Kotlin (Intermediate)</div>
+                    <div class="skill-item">Jetpack Compose (Intermediate)</div>
+                    <div class="skill-item">Java (Intermediate)</div>
+                    <div class="skill-item">Django (Intermediate)</div>
+                    <div class="skill-item">Django REST Framework (Intermediate)</div>
+                    <div class="skill-item">HTMX (Intermediate)</div>
+                    <div class="skill-item">REST API (Intermediate)</div>
                     <div class="skill-item">SQL Server (Intermediate)</div>
-                 
-                    <div class="skill-item">Rest API (Intermediate)</div>
+                    <div class="skill-item">Python (Beginner)</div>
                     <div class="skill-item">Linux (Intermediate)</div>
                     <div class="skill-item">Network+ (Intermediate)</div>
-                    <div class="skill-item">Flutter (Intermediate)</div>
-                    <div class="skill-item">Python (Beginner)</div>
-                    <div class="skill-item">Django (Intermediate)</div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Additional Skills -->
-            <div class="section">
+            <section class="section">
                 <h3 id="additional-skills-title">Additional Skills</h3>
                 <div class="skills-grid" id="additional-skills-grid">
                     <div class="skill-item">SOLID Programming Principles</div>
                     <div class="skill-item">Clean Architecture</div>
+                    <div class="skill-item">Hilt</div>
+                    <div class="skill-item">Room</div>
+                    <div class="skill-item">GetIt (Flutter DI)</div>
+                    <div class="skill-item">RiverPod</div>
+                    <div class="skill-item">Bloc &amp; Cubit</div>
                     <div class="skill-item">Firebase</div>
                     <div class="skill-item">Sentry</div>
-                    <div class="skill-item">RiverPod</div>
-                    <div class="skill-item">Bloc & cubit</div>
+                    <div class="skill-item">Git &amp; GitHub</div>
                     <div class="skill-item">Efficient Code Design</div>
                     <div class="skill-item">Communication</div>
-                    <div class="skill-item">Git & GitHub</div>
+                    <div class="skill-item">AI Coding Agents</div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Projects and Academic Experiences -->
-            <div class="section">
-                <h3 id="projects-title">Projects and Academic Experiences</h3>
-                <ul id="projects-list">
-                    <li>Helmet Detection Project for Data Mining Course - Fine-tuned with YOLO and KerasCV (2024)</li>
-                    <li>Course Registration System Simulation - With Java and JavaFX (2021)</li>
-                    <li>Text Compression - Compression Algorithms with Java (2023)</li>
-                    <li>Implementation of Maze Routing Algorithms - BFS, DFS, UCS, and A* with Java (2023)</li>
-                    <li>Car Service Management Software and Reminder with Chatbot - Using Flutter for Android (2025)</li>
-                </ul>
-            </div>
+            <section class="section">
+                <h3 id="projects-title">Projects and Experience</h3>
+                <div class="projects" id="projects-list">
+                    <article class="project">
+                        <div class="project-head">
+                            <h4 class="project-title">Ragham (رقم) - Native Android Accounting App</h4>
+                            <span class="project-meta">Kotlin · Jetpack Compose · Hilt · Room · 2025 - Present</span>
+                        </div>
+                        <p class="project-desc">Accounting, invoicing, ledger, and inventory management application; currently live on Myket with 200K+ downloads and a 4.6/5 rating.</p>
+                        <a class="project-link" href="https://myket.ir/app/net.ragham.booking" target="_blank" rel="noopener">View on Myket</a>
+                    </article>
+                    <article class="project">
+                        <div class="project-head">
+                            <h4 class="project-title">Nikan Service (nickanservice.ir) - Full-Stack Project</h4>
+                            <span class="project-meta">Full-Stack · Flutter · 2025</span>
+                        </div>
+                        <p class="project-desc">Official after-sales service platform for home appliances in Bushehr: service requests, warranty inquiries, complaints, and customer surveys.</p>
+                        <a class="project-link" href="https://nickanservice.ir" target="_blank" rel="noopener">nickanservice.ir</a>
+                    </article>
+                    <article class="project">
+                        <div class="project-head">
+                            <h4 class="project-title">Insurance Organization Platform - Full-Stack Project</h4>
+                            <span class="project-meta">Django · DRF · HTMX</span>
+                        </div>
+                        <p class="project-desc">Dynamic form builder, reporting, task assignment to users, budgeting, treatment, procurement, and loan management systems.</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-head">
+                            <h4 class="project-title">Car Service Management Software and Reminder with Chatbot</h4>
+                            <span class="project-meta">Flutter for Android · 2025</span>
+                        </div>
+                        <p class="project-desc">Car service management and reminder app with chatbot; available on Myket.</p>
+                        <a class="project-link" href="https://myket.ir/app/ir.motolog.app" target="_blank" rel="noopener">View on Myket</a>
+                    </article>
+                    <article class="project">
+                        <div class="project-head">
+                            <h4 class="project-title">Helmet Detection Project for Data Mining Course</h4>
+                            <span class="project-meta">YOLO &amp; KerasCV · 2024</span>
+                        </div>
+                        <p class="project-desc">Fine-tuned object detection model for helmet usage detection.</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-head">
+                            <h4 class="project-title">Course Registration System Simulation</h4>
+                            <span class="project-meta">Java &amp; JavaFX · 2021</span>
+                        </div>
+                    </article>
+                    <article class="project">
+                        <div class="project-head">
+                            <h4 class="project-title">Text Compression</h4>
+                            <span class="project-meta">Compression algorithms with Java · 2023</span>
+                        </div>
+                    </article>
+                    <article class="project">
+                        <div class="project-head">
+                            <h4 class="project-title">Implementation of Maze Routing Algorithms</h4>
+                            <span class="project-meta">BFS, DFS, UCS &amp; A* with Java · 2023</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
 
-            <!-- Books and Articles -->
-            <div class="section">
+            <section class="section">
                 <h3 id="books-title">Books and Articles</h3>
                 <ul id="books-list">
-                    <li>AI Ethics in Image Processing (In Edit) - Mahan Saljoughian, Prof. Rezvan Baghmolai (2025)</li>
+                    <li>AI Ethics in Image Processing (In Edit) - Mahan Saljoughian, Prof. Rezvan Baghmolai (2026)</li>
                 </ul>
-            </div>
+            </section>
 
-            <!-- Volunteer Activities -->
-            <div class="section">
+            <section class="section">
                 <h3 id="volunteer-title">Volunteer Activities</h3>
                 <ul id="volunteer-list">
                     <li>Member of Persian Gulf University Scientific Association (2024)</li>
@@ -254,44 +535,115 @@
                     <li>Teaching Assistant: Fundamentals of Artificial Intelligence (2024)</li>
                     <li>Teaching Assistant: Algorithm Design (2024)</li>
                 </ul>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
 
     <script>
         const content = {
             en: {
+                monogram: 'MS',
                 name: 'Seyed Mahan Saljoughian Rad',
-                title: 'Flutter Developer',
+                title: 'Fullstack Developer',
                 location: 'Shiraz, Iran',
-                email: 'Email: <a href="mailto:mahansaljoughian@gmail.com">mahansaljoughian@gmail.com</a>',
-                phone: 'Phone: 09372578150',
-                linkedin: 'LinkedIn: <a href="https://www.linkedin.com/in/mahan-saljoughian-b2994a248/" target="_blank">Profile</a>',
-                github: 'GitHub: <a href="https://github.com/Mahan-Saljoughian" target="_blank">github.com/Mahan-Saljoughian</a>',
-                portfolio: 'Portfolio: <a href="https://github.com/Mahan-Saljoughian/motolog-public" target="_blank">Motolog Project</a>',
-                dob: 'Date of Birth: 2003-09-05',
-                gender: 'Gender: Male',
-                military: 'Military Service: Educational Exemption',
+                contact: [
+                    { label: 'Email', value: '<a href="mailto:mahansaljoughian@gmail.com">mahansaljoughian@gmail.com</a>' },
+                    { label: 'Phone', value: '<a class="ltr" href="tel:+989372578150">09372578150</a>' },
+                    { label: 'LinkedIn', value: '<a href="https://www.linkedin.com/in/mahan-saljoughian-b2994a248/" target="_blank" rel="noopener">Profile</a>' },
+                    { label: 'GitHub', value: '<a class="ltr" href="https://github.com/Mahan-Saljoughian" target="_blank" rel="noopener">github.com/Mahan-Saljoughian</a>' },
+                    { label: 'Date of Birth', value: '<span class="ltr">2003-09-05</span>' },
+                    { label: 'Gender', value: 'Male' },
+                    { label: 'Military Service', value: 'Educational Exemption' }
+                ],
                 aboutTitle: 'About Me',
-                aboutText: 'Flutter developer focused on principled design, efficient implementation, and security considerations in Android applications. Committed to SOLID principles and clean architecture for scalable and maintainable software. Also familiar with Django and interested in backend, AI, and networking to combine technical knowledge and creativity in problem-solving.',
+                aboutText: 'Mobile developer focused on principled design, efficient implementation, and security considerations in Android applications, building with both Flutter and Kotlin/Jetpack Compose. Committed to SOLID principles and clean architecture for scalable and maintainable software. Also experienced in Django full-stack development (DRF & HTMX), with a strong interest in backend, AI, and networking. Efficient and smart use of AI coding agents (Claude, Codex, Gemini, and DeepSeek), with Claude being the best fit for the workflow so far.',
                 educationTitle: 'Education',
-                educationList: ['<strong>Bachelor: Software Engineering</strong> - Persian Gulf University (PGU), 2021-2025 (GPA: 18.24)','<strong>Masters: Software Engineering</strong> - Shiraz Univeristy of Technology (sutech), starting 2025'],
+                educationList: [
+                    '<strong>Bachelor: Software Engineering</strong> - Persian Gulf University (PGU), 2021-2025 (GPA: 18.24)',
+                    '<strong>Masters: Software Engineering</strong> - Shiraz University of Technology (SUTech), 2025 - Present (GPA: 16.53)'
+                ],
                 languagesTitle: 'Languages',
                 languagesList: ['English: Advanced'],
                 softwareSkillsTitle: 'Software Skills',
-                softwareSkills: ['Java (Intermediate)','Dart (Intermediate)','SQL Server (Intermediate)',  'Rest API (Intermediate)', 'Linux (Intermediate)', 'Network+ (Intermediate)', 'Flutter (Intermediate)', 'Python (Beginner)', 'Django (Intermediate)'],
+                softwareSkills: [
+                    'Flutter (Intermediate)',
+                    'Dart (Intermediate)',
+                    'Kotlin (Intermediate)',
+                    'Jetpack Compose (Intermediate)',
+                    'Java (Intermediate)',
+                    'Django (Intermediate)',
+                    'Django REST Framework (Intermediate)',
+                    'HTMX (Intermediate)',
+                    'REST API (Intermediate)',
+                    'SQL Server (Intermediate)',
+                    'Python (Beginner)',
+                    'Linux (Intermediate)',
+                    'Network+ (Intermediate)'
+                ],
                 additionalSkillsTitle: 'Additional Skills',
-                additionalSkills: ['SOLID Programming Principles', 'Clean Architecture', 'Firebase', 'Sentry', 'RiverPod', 'Bloc & cubit', 'Efficient Code Design', 'Communication', 'Git & GitHub'],
-                projectsTitle: 'Projects and Academic Experiences',
+                additionalSkills: [
+                    'SOLID Programming Principles',
+                    'Clean Architecture',
+                    'Hilt',
+                    'Room',
+                    'GetIt (Flutter DI)',
+                    'RiverPod',
+                    'Bloc & Cubit',
+                    'Firebase',
+                    'Sentry',
+                    'Git & GitHub',
+                    'Efficient Code Design',
+                    'Communication',
+                    'AI Coding Agents'
+                ],
+                projectsTitle: 'Projects and Experience',
                 projectsList: [
-                    'Helmet Detection Project for Data Mining Course - Fine-tuned with YOLO and KerasCV (2024)',
-                    'Course Registration System Simulation - With Java and JavaFX (2021)',
-                    'Text Compression - Compression Algorithms with Java (2023)',
-                    'Implementation of Maze Routing Algorithms - BFS, DFS, UCS, and A* with Java (2023)',
-                    'Car Service Management Software and Reminder with Chatbot - Using Flutter for Android (2025)'
+                    {
+                        title: 'Ragham (رقم) - Native Android Accounting App',
+                        meta: 'Kotlin · Jetpack Compose · Hilt · Room · 2025 - Present',
+                        desc: 'Accounting, invoicing, ledger, and inventory management application; currently live on Myket with 200K+ downloads and a 4.6/5 rating.',
+                        link: 'https://myket.ir/app/net.ragham.booking',
+                        linkLabel: 'View on Myket'
+                    },
+                    {
+                        title: 'Nikan Service (nickanservice.ir) - Full-Stack Project',
+                        meta: 'Full-Stack · Flutter · 2025',
+                        desc: 'Official after-sales service platform for home appliances in Bushehr: service requests, warranty inquiries, complaints, and customer surveys.',
+                        link: 'https://nickanservice.ir',
+                        linkLabel: 'nickanservice.ir'
+                    },
+                    {
+                        title: 'Insurance Organization Platform - Full-Stack Project',
+                        meta: 'Django · DRF · HTMX',
+                        desc: 'Dynamic form builder, reporting, task assignment to users, budgeting, treatment, procurement, and loan management systems.'
+                    },
+                    {
+                        title: 'Car Service Management Software and Reminder with Chatbot',
+                        meta: 'Flutter for Android · 2025',
+                        desc: 'Car service management and reminder app with chatbot; available on Myket.',
+                        link: 'https://myket.ir/app/ir.motolog.app',
+                        linkLabel: 'View on Myket'
+                    },
+                    {
+                        title: 'Helmet Detection Project for Data Mining Course',
+                        meta: 'YOLO & KerasCV · 2024',
+                        desc: 'Fine-tuned object detection model for helmet usage detection.'
+                    },
+                    {
+                        title: 'Course Registration System Simulation',
+                        meta: 'Java & JavaFX · 2021'
+                    },
+                    {
+                        title: 'Text Compression',
+                        meta: 'Compression algorithms with Java · 2023'
+                    },
+                    {
+                        title: 'Implementation of Maze Routing Algorithms',
+                        meta: 'BFS, DFS, UCS & A* with Java · 2023'
+                    }
                 ],
                 booksTitle: 'Books and Articles',
-                booksList: ['AI Ethics in Image Processing (In Edit) - Mahan Saljoughian, Prof. Rezvan Baghmolai (2025)'],
+                booksList: ['AI Ethics in Image Processing (In Edit) - Mahan Saljoughian, Prof. Rezvan Baghmolai (2026)'],
                 volunteerTitle: 'Volunteer Activities',
                 volunteerList: [
                     'Member of Persian Gulf University Scientific Association (2024)',
@@ -302,91 +654,201 @@
                 ]
             },
             fa: {
+                monogram: 'م.س',
                 name: 'سید ماهان سلجوقیان راد',
-                title: 'توسعه‌دهنده فلاتر',
+                title: 'توسعه‌دهنده فول‌استک',
                 location: 'شیراز، ایران',
-                email: 'ایمیل: <a href="mailto:mahansaljoughian@gmail.com">mahansaljoughian@gmail.com</a>',
-                phone: 'تلفن: 09372578150',
-                linkedin: 'لینکدین: <a href="https://www.linkedin.com/in/mahan-saljoughian-b2994a248/" target="_blank">پروفایل</a>',
-                github: 'گیتهاب: <a href="https://github.com/Mahan-Saljoughian" target="_blank">github.com/Mahan-Saljoughian</a>',
-                portfolio: 'نمونه کار: <a href="https://github.com/Mahan-Saljoughian/motolog-public" target="_blank">پروژه Motolog</a>',
-                dob: 'تاریخ تولد: 1382/06/14',
-                gender: 'جنسیت: مرد',
-                military: 'وضعیت نظام وظیفه: معافیت تحصیلی',
+                contact: [
+                    { label: 'ایمیل', value: '<a class="ltr" href="mailto:mahansaljoughian@gmail.com">mahansaljoughian@gmail.com</a>' },
+                    { label: 'تلفن', value: '<a class="ltr" href="tel:+989372578150">۰۹۳۷۲۵۷۸۱۵۰</a>' },
+                    { label: 'لینکدین', value: '<a href="https://www.linkedin.com/in/mahan-saljoughian-b2994a248/" target="_blank" rel="noopener">پروفایل</a>' },
+                    { label: 'گیت‌هاب', value: '<a class="ltr" href="https://github.com/Mahan-Saljoughian" target="_blank" rel="noopener">github.com/Mahan-Saljoughian</a>' },
+                    { label: 'تاریخ تولد', value: '<span class="ltr">۱۳۸۲/۰۶/۱۴</span>' },
+                    { label: 'جنسیت', value: 'مرد' },
+                    { label: 'وضعیت نظام وظیفه', value: 'معافیت تحصیلی' }
+                ],
                 aboutTitle: 'درباره من',
-                aboutText: 'توسعه‌دهنده فلاتر با تمرکز بر طراحی اصولی، پیاده‌سازی بهینه و رعایت ملاحظات امنیتی در اپلیکیشن‌های اندروید. پایبند به اصول SOLID و معماری پاک برای ایجاد نرم‌افزارهای مقیاس‌پذیر و قابل نگهداری. همچنین آشنا با جنگو و علاقه‌مند به حوزه‌های بک‌اند، هوش مصنوعی و شبکه برای ترکیب دانش فنی و خلاقیت در حل مسائل.',
+                aboutText: 'توسعه‌دهنده موبایل با تمرکز بر طراحی اصولی، پیاده‌سازی بهینه و ملاحظات امنیتی در اپلیکیشن‌های اندروید؛ با فلاتر و کاتلین/Jetpack Compose. پایبند به اصول SOLID و معماری پاک برای ساخت نرم‌افزارهای مقیاس‌پذیر و قابل نگهداری. همچنین آشنا با توسعه فول‌استک جنگو (DRF و HTMX) و علاقه‌مند به بک‌اند، هوش مصنوعی و شبکه. استفاده بهینه و هوشمندانه از ایجنت‌های کدنویسی هوش مصنوعی (Claude، Codex، Gemini و DeepSeek)؛ Claude نیز تاکنون بهترین گزینه برای روند کاری بوده است.',
                 educationTitle: 'سوابق تحصیلی',
-               educationList: [
-  '<strong>کارشناسی: مهندسی کامپیوتر-نرم افزار</strong> - دانشگاه خلیج فارس، 1400-1404 (معدل: 18.24)',
-  '<strong>کارشناسی ارشد: مهندسی نرم افزار</strong> - دانشگاه صنعتی شیراز (sutech)، شروع از 1404'
-],
+                educationList: [
+                    '<strong>کارشناسی: مهندسی کامپیوتر - نرم‌افزار</strong> - دانشگاه خلیج فارس، ۱۴۰۰-۱۴۰۴ (معدل: ۱۸/۲۴)',
+                    '<strong>کارشناسی ارشد: مهندسی نرم‌افزار</strong> - دانشگاه صنعتی شیراز (SUTech)، ۱۴۰۴ - تاکنون (معدل: ۱۶/۵۳)'
+                ],
                 languagesTitle: 'زبان‌ها',
                 languagesList: ['انگلیسی: پیشرفته'],
-                softwareSkillsTitle: 'مهارت‌های نرم افزاری',
-                softwareSkills: [ 'Java (متوسط)','Dart (متوسط)','SQL Server (متوسط)', 'Rest API (متوسط)', 'Linux (متوسط)', 'Network+ (متوسط)', 'Flutter (متوسط)', 'Python (مقدماتی)', 'Django (متوسط)'],
+                softwareSkillsTitle: 'مهارت‌های نرم‌افزاری',
+                softwareSkills: [
+                    'فلاتر (متوسط)',
+                    'دارت (متوسط)',
+                    'کاتلین (متوسط)',
+                    'Jetpack Compose (متوسط)',
+                    'جاوا (متوسط)',
+                    'جنگو (متوسط)',
+                    'Django REST Framework (متوسط)',
+                    'HTMX (متوسط)',
+                    'REST API (متوسط)',
+                    'SQL Server (متوسط)',
+                    'پایتون (مقدماتی)',
+                    'لینوکس (متوسط)',
+                    'Network+ (متوسط)'
+                ],
                 additionalSkillsTitle: 'مهارت‌های تکمیلی',
-                additionalSkills: ['اصول برنامه‌نویسی SOLID', 'Clean Architecture', 'Firebase', 'Sentry', 'RiverPod', 'Bloc & cubit', 'Efficient Code Design', 'Communication', 'Git & GitHub'],
-                projectsTitle: 'پروژه‌ها و تجربیات آکادمیک',
+                additionalSkills: [
+                    'اصول برنامه‌نویسی SOLID',
+                    'Clean Architecture',
+                    'Hilt',
+                    'Room',
+                    'GetIt (تزریق وابستگی فلاتر)',
+                    'RiverPod',
+                    'Bloc & Cubit',
+                    'Firebase',
+                    'Sentry',
+                    'Git & GitHub',
+                    'طراحی کد بهینه',
+                    'مهارت ارتباطی',
+                    'ایجنت‌های کدنویسی هوش مصنوعی'
+                ],
+                projectsTitle: 'پروژه‌ها و تجربیات',
                 projectsList: [
-                    'پروژه تشخیص پوشیدن کلاه ایمنی برای درس داده کاوی - فاین‌تیون با YOLO و KerasCV (1403)',
-                    'شبیه‌سازی سیستم ثبت‌نام در درس‌ها – با Java و JavaFX (1400)',
-                    'فشرده‌سازی متن – الگوریتم‌های فشرده‌سازی با Java (1402)',
-                    'پیاده‌سازی الگوریتم‌های مسیریابی در ماز – BFS, DFS, UCS و A_Star با جاوا (1402)',
-                    'نرم افزار مدیریت سرویس‌های ماشین و یادآوری آنها به همراه چت بات با فلاتر برای اندروید (1404)'
+                    {
+                        title: 'رقم - اپلیکیشن نیتیو اندروید حسابداری',
+                        meta: 'Kotlin · Jetpack Compose · Hilt · Room · ۱۴۰۴ - تاکنون',
+                        desc: 'حسابداری، صدور فاکتور، دفتر حساب و انبارداری؛ هم‌اکنون روی مایکت با بیش از ۲۰۰ هزار دانلود و امتیاز ۴.۶ از ۵',
+                        link: 'https://myket.ir/app/net.ragham.booking',
+                        linkLabel: 'مشاهده در مایکت'
+                    },
+                    {
+                        title: 'نیکان سرویس (nickanservice.ir) - پروژه فول‌استک',
+                        meta: 'فول‌استک · Flutter · ۱۴۰۴',
+                        desc: 'پلتفرم نمایندگی رسمی خدمات پس از فروش لوازم خانگی در بوشهر: ثبت درخواست سرویس، استعلام گارانتی، شکایات و نظرسنجی',
+                        link: 'https://nickanservice.ir',
+                        linkLabel: 'nickanservice.ir'
+                    },
+                    {
+                        title: 'سامانه سازمان بیمه - پروژه فول‌استک',
+                        meta: 'Django · DRF · HTMX',
+                        desc: 'فرم‌ساز پویا، گزارش‌گیری، تخصیص وظایف به کاربران، سامانه بودجه، درمان، تدارکات و وام'
+                    },
+                    {
+                        title: 'نرم‌افزار مدیریت سرویس ماشین و یادآوری سرویس با چت‌بات',
+                        meta: 'فلاتر برای اندروید · ۱۴۰۴',
+                        desc: 'نرم‌افزار مدیریت سرویس خودرو و یادآوری سرویس به همراه چت‌بات؛ موجود در مایکت',
+                        link: 'https://myket.ir/app/ir.motolog.app',
+                        linkLabel: 'مشاهده در مایکت'
+                    },
+                    {
+                        title: 'پروژه تشخیص پوشیدن کلاه ایمنی',
+                        meta: 'YOLO و KerasCV · ۱۴۰۳',
+                        desc: 'فاین‌تیون مدل تشخیص اشیاء برای درس داده‌کاوی'
+                    },
+                    {
+                        title: 'شبیه‌سازی سیستم ثبت‌نام دروس',
+                        meta: 'Java و JavaFX · ۱۴۰۰'
+                    },
+                    {
+                        title: 'فشرده‌سازی متن',
+                        meta: 'الگوریتم‌های فشرده‌سازی با Java · ۱۴۰۲'
+                    },
+                    {
+                        title: 'پیاده‌سازی الگوریتم‌های مسیریابی در ماز',
+                        meta: 'BFS، DFS، UCS و A* با Java · ۱۴۰۲'
+                    }
                 ],
                 booksTitle: 'کتاب‌ها و مقالات',
-                booksList: ['Ai ethics in Image Processing (in edit) - ماهان سلجوقیان ، استاد رضوان باغملایی (1404)'],
+                booksList: ['AI Ethics in Image Processing (در حال ویرایش) - ماهان سلجوقیان، استاد رضوان باغملایی (۱۴۰۵)'],
                 volunteerTitle: 'فعالیت‌های داوطلبانه',
                 volunteerList: [
-                    'عضو انجمن علمی دانشگاه خلیج فارس بوشهر (1403)',
-                    'دستیار استاد درس مبانی برنامه نویسی با C (1404)',
-                    'دستیار استاد درس برنامه نویسی پیشرفته با java (1403)',
-                    'دستیار استاد مبانی هوش مصنوعی (1403)',
-                    'دستیار استاد درس طراحی الگوریتم (1403)'
+                    'عضو انجمن علمی دانشگاه خلیج فارس بوشهر (۱۴۰۳)',
+                    'دستیار استاد درس مبانی برنامه‌نویسی با C (۱۴۰۴)',
+                    'دستیار استاد درس برنامه‌نویسی پیشرفته با Java (۱۴۰۳)',
+                    'دستیار استاد درس مبانی هوش مصنوعی (۱۴۰۳)',
+                    'دستیار استاد درس طراحی الگوریتم (۱۴۰۳)'
                 ]
             }
         };
 
+        function renderProjects(projects) {
+            return projects.map(project => {
+                const link = project.link
+                    ? `<a class="project-link" href="${project.link}" target="_blank" rel="noopener">${project.linkLabel}</a>`
+                    : '';
+                const desc = project.desc
+                    ? `<p class="project-desc">${project.desc}</p>`
+                    : '';
+                return `
+                    <article class="project">
+                        <div class="project-head">
+                            <h4 class="project-title">${project.title}</h4>
+                            <span class="project-meta">${project.meta}</span>
+                        </div>
+                        ${desc}
+                        ${link}
+                    </article>`;
+            }).join('');
+        }
+
         function switchLanguage(lang) {
             const data = content[lang];
-            document.getElementById('name').innerHTML = data.name;
-            document.getElementById('title').innerHTML = data.title;
-            document.getElementById('location').innerHTML = data.location;
-            document.getElementById('email').innerHTML = data.email;
-            document.getElementById('phone').innerHTML = data.phone;
-            document.getElementById('linkedin').innerHTML = data.linkedin;
-            document.getElementById('github').innerHTML = data.github;
-            document.getElementById('portfolio').innerHTML = data.portfolio;
-            document.getElementById('dob').innerHTML = data.dob;
-            document.getElementById('gender').innerHTML = data.gender;
-            document.getElementById('military').innerHTML = data.military;
-            document.getElementById('about-title').innerHTML = data.aboutTitle;
-            document.getElementById('about-text').innerHTML = data.aboutText;
-            document.getElementById('education-title').innerHTML = data.educationTitle;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+            document.body.classList.toggle('rtl', lang === 'fa');
+
+            document.getElementById('monogram').textContent = data.monogram;
+            document.getElementById('name').textContent = data.name;
+            document.getElementById('title').textContent = data.title;
+            document.getElementById('location').textContent = data.location;
+            document.getElementById('contact-list').innerHTML = data.contact.map(item =>
+                `<li><span class="contact-label">${item.label}</span><span class="contact-value">${item.value}</span></li>`
+            ).join('');
+
+            document.getElementById('about-title').textContent = data.aboutTitle;
+            document.getElementById('about-text').textContent = data.aboutText;
+            document.getElementById('education-title').textContent = data.educationTitle;
             document.getElementById('education-list').innerHTML = data.educationList.map(item => `<li>${item}</li>`).join('');
-            document.getElementById('languages-title').innerHTML = data.languagesTitle;
+            document.getElementById('languages-title').textContent = data.languagesTitle;
             document.getElementById('languages-list').innerHTML = data.languagesList.map(item => `<li>${item}</li>`).join('');
-            document.getElementById('software-skills-title').innerHTML = data.softwareSkillsTitle;
+            document.getElementById('software-skills-title').textContent = data.softwareSkillsTitle;
             document.getElementById('software-skills-grid').innerHTML = data.softwareSkills.map(item => `<div class="skill-item">${item}</div>`).join('');
-            document.getElementById('additional-skills-title').innerHTML = data.additionalSkillsTitle;
+            document.getElementById('additional-skills-title').textContent = data.additionalSkillsTitle;
             document.getElementById('additional-skills-grid').innerHTML = data.additionalSkills.map(item => `<div class="skill-item">${item}</div>`).join('');
-            document.getElementById('projects-title').innerHTML = data.projectsTitle;
-            document.getElementById('projects-list').innerHTML = data.projectsList.map(item => `<li>${item}</li>`).join('');
-            document.getElementById('books-title').innerHTML = data.booksTitle;
+            document.getElementById('projects-title').textContent = data.projectsTitle;
+            document.getElementById('projects-list').innerHTML = renderProjects(data.projectsList);
+            document.getElementById('books-title').textContent = data.booksTitle;
             document.getElementById('books-list').innerHTML = data.booksList.map(item => `<li>${item}</li>`).join('');
-            document.getElementById('volunteer-title').innerHTML = data.volunteerTitle;
+            document.getElementById('volunteer-title').textContent = data.volunteerTitle;
             document.getElementById('volunteer-list').innerHTML = data.volunteerList.map(item => `<li>${item}</li>`).join('');
 
-            document.body.classList.toggle('rtl', lang === 'fa');
             document.getElementById('en-btn').classList.toggle('active', lang === 'en');
             document.getElementById('fa-btn').classList.toggle('active', lang === 'fa');
+
+            try {
+                localStorage.setItem('resume-lang', lang);
+            } catch (error) {}
         }
 
         document.getElementById('en-btn').addEventListener('click', () => switchLanguage('en'));
         document.getElementById('fa-btn').addEventListener('click', () => switchLanguage('fa'));
 
-        // Default to English
-        switchLanguage('en');
+        const sections = document.querySelectorAll('.section');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => observer.observe(section));
+        } else {
+            sections.forEach(section => section.classList.add('visible'));
+        }
+
+        let initialLanguage = 'en';
+        try {
+            initialLanguage = localStorage.getItem('resume-lang') || 'en';
+        } catch (error) {}
+        switchLanguage(initialLanguage);
     </script>
 </body>
 </html>
